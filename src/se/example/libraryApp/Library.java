@@ -9,7 +9,7 @@ public class Library {
         this.books = new ArrayList<>();
 
         books.add(new DesignBook("The great design", "3TT5467749S", "Amina Bella"));
-        books.add(new MusicBook("Sounds", "88Y56472H9S", "Idris Roll"));
+        books.add(new MusicBook("The sound", "88Y56472H9S", "Idris Roll"));
         books.add(new ScienceBook("Atoms", "89546F54E9S", "Jibril Drop"));
     }
 
@@ -17,8 +17,15 @@ public class Library {
         books.add(book);
     }
 
-    public void remove(Book book){
-        books.remove(book);
+    public boolean remove(String isbn){
+        for(Book book: books){
+            if(book.getIsbn().equals(isbn)){
+                books.remove(book);
+                return true;
+            }
+        }
+        return false;
+
     }
 
 
